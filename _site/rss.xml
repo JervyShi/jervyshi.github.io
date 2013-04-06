@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-        <title>Jekyll Bootstrap</title>
-        <description>Jekyll Bootstrap - Name Lastname</description>
-        <link>http://username.github.com</link>
-        <link>http://username.github.com</link>
-        <lastBuildDate>2013-04-05T23:42:50+08:00</lastBuildDate>
-        <pubDate>2013-04-05T23:42:50+08:00</pubDate>
+        <title>JervyShi's Blog</title>
+        <description>JervyShi's Blog - JervyShi</description>
+        <link>http://jervyshi.github.com</link>
+        <link>http://jervyshi.github.com</link>
+        <lastBuildDate>2013-04-06T22:16:28+08:00</lastBuildDate>
+        <pubDate>2013-04-06T22:16:28+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Hello Jekyll</title>
+                <description>&lt;h2 id='jekyll_github_'&gt;Jekyll GitHub 搭建的新博客&lt;/h2&gt;
+
+&lt;p&gt;考虑再三还是决定要给自己的博客搬个家了，无论是稳定性还是技术方面的考虑，GitHub Page都是一个不错的选择！&lt;/p&gt;</description>
+                <link>http://jervyshi.github.com/2013/04/06/hello-jekyll</link>
+                <guid>http://jervyshi.github.com/2013/04/06/hello-jekyll</guid>
+                <pubDate>2013-04-06T00:00:00+08:00</pubDate>
+        </item>
+
+        <item>
+                <title>CXF webservice调用411 Length Required解决方案</title>
+                <description>&lt;p&gt;项目中一直用到&lt;a href='http://cxf.apache.org/'&gt;Apache CXF WebService&lt;/a&gt;，原本服务端都是apache做转发，一切都很正常。有一天服务端换成nginx做转发，问题就出来了，客户端调用时抛出 411 Length Required 异常。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;javax.xml.ws.soap.SOAPFaultException: Response was of unexpected text/html ContentType.  
+Incoming portion of HTML stream: &amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;411 Length Required&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&amp;lt;body bgcolor=&amp;quot;white&amp;quot;&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;411 Length Required&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+	at org.apache.cxf.jaxws.JaxWsClientProxy.invoke(JaxWsClientProxy.java:146)
+	at $Proxy53.testCXF(Unknown Source)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;根据异常的提示大致分析出异常应该是在客户端向服务端发出请求时请求头中不包含”&lt;em&gt;Content-length&lt;/em&gt;”，尝试用空对象调用接口异常并未抛出，只有当List中超过一定量如50的bean之后会抛出此异常。据此分析apache cxf对不同数据量进行请求时并不是采用同种方式，为了方便分析不同数据量请求头的区别，我找到一台Linux用nc命令监控8080端口，并将客户端数据发送至此Linux上的8080端口。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# nc -l 8080&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一步:使用小数据量进行测试，获取请求头如下，发现可以调用成功时cxf发送数据时请求头中包含”&lt;em&gt;Content-Length&lt;/em&gt;”&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;POST / HTTP/1.1
+Content-Type: text/xml; charset=UTF-8
+SOAPAction: &amp;quot;&amp;quot;
+Accept: */*
+User-Agent: Apache CXF 2.2.4
+Cache-Control: no-cache
+Pragma: no-cache
+Host: 192.168.1.110:8080
+Connection: keep-alive
+Content-Length: 286&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二步:使用大数据量进行测试，获取请求头如下，发现可以调用失败时cxf发送数据时请求头中没有包含”&lt;em&gt;Content-Length&lt;/em&gt;”，同时多了一个”&lt;em&gt;Transfer-Encoding&lt;/em&gt;”值为”chunked”，关于 的介绍可以参考博文&lt;a href='http://www.51testing.com/?uid-390472-action-viewspace-itemid-233985'&gt;http协议content-encoding &amp;amp; transfer-encoding&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;POST / HTTP/1.1
+Content-Type: text/xml; charset=UTF-8
+SOAPAction: &amp;quot;&amp;quot;
+Accept: */*
+User-Agent: Apache CXF 2.2.4
+Cache-Control: no-cache
+Pragma: no-cache
+Host: 192.168.1.110:8080
+Connection: keep-alive
+Transfer-Encoding: chunked&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过一番搜索，发现apache默认就是支持&lt;em&gt;chunked&lt;/em&gt;块接收的，而nginx如果要支持这种格式必须要添加&lt;em&gt;chunkin-nginx-module&lt;/em&gt;模块，但是给nginx添加新模块需要重新编译nginx，虽然能解决现有问题但是有必要通过一系列的测试等，需要找到一个更简单的临时解决方案。&lt;/p&gt;
+
+&lt;p&gt;既然apache cxf可以在请求头中添加”&lt;em&gt;Content-Length&lt;/em&gt;”来发送并且数据量达到一定值之后会转换为&lt;em&gt;chunked&lt;/em&gt;块发送，那么是否可以关掉chunked块发送方式呢，感觉apache cxf官网完善的文档，经过一番探索在&lt;a href='http://cxf.apache.org/docs/client-http-transport-including-ssl-support.html'&gt;Apahce cxf-User’s Guide&lt;/a&gt;中找到了”&lt;em&gt;AllowChunking&lt;/em&gt;”的设置，有两种方式，可以直接在代码中设置&lt;em&gt;AllowChunking&lt;/em&gt;也可以在配置文件中设置&lt;em&gt;AllowChunking&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//Turn off chunking so that NTLM can occur
+Client client = ClientProxy.getClient(port);
+HTTPConduit http = (HTTPConduit) client.getConduit();
+HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
+httpClientPolicy.setConnectionTimeout(36000);
+httpClientPolicy.setAllowChunking(false);
+http.setClient(httpClientPolicy);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以在配置文件中设置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;http-conf:conduit name=&amp;quot;{http://apache.org/hello_world_soap_http}SoapPort.http-conduit&amp;quot;&amp;gt;
+  &amp;lt;http-conf:client Connection=&amp;quot;Keep-Alive&amp;quot; MaxRetransmits=&amp;quot;1&amp;quot; AllowChunking=&amp;quot;false&amp;quot; /&amp;gt;
+&amp;lt;/http-conf:conduit&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置文件中”&lt;em&gt;http-conf:conduit&lt;/em&gt;”的name设置格式是”&lt;em&gt;{WSDL Namespace}portName.http-conduit&lt;/em&gt;”，但是这种方式经常由于搞错WSDL Namespace与portName而导致设置不生效，其实name还有一种设置格式是路径匹配，假如我是服务端提供了一个服务，服务地址是”&lt;em&gt;http://jervyshi.tk/services/userService?wsdl&lt;/em&gt;”，这个时候name只需要配置为”&lt;em&gt;http://jervyshi.tk/.*&lt;/em&gt;”即可拦截”&lt;em&gt;http://jervyshi.tk&lt;/em&gt;”下的所有服务。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;http-conf:conduit name=&amp;quot;http://jervyshi.tk/.*&amp;quot;&amp;gt;
+	&amp;lt;http-conf:client AllowChunking=&amp;quot;false&amp;quot; /&amp;gt;
+&amp;lt;/http-conf:conduit&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul class='posts'&gt;
+  
+    &lt;li&gt;&lt;span&gt;06 Apr 2013&lt;/span&gt; &amp;raquo; &lt;a href='/2013/04/06/hello-jekyll'&gt;Hello Jekyll&lt;/a&gt;&lt;/li&gt;
+  
+    &lt;li&gt;&lt;span&gt;01 Sep 2012&lt;/span&gt; &amp;raquo; &lt;a href='/java/2012/09/01/cxf-webservice-nginx-411'&gt;CXF webservice调用411 Length Required解决方案&lt;/a&gt;&lt;/li&gt;
+  
+    &lt;li&gt;&lt;span&gt;29 Dec 2011&lt;/span&gt; &amp;raquo; &lt;a href='/lessons/2011/12/29/jekyll-introduction'&gt;Jekyll Introduction&lt;/a&gt;&lt;/li&gt;
+  
+&lt;/ul&gt;</description>
+                <link>http://jervyshi.github.com/java/2012/09/01/cxf-webservice-nginx-411</link>
+                <guid>http://jervyshi.github.com/java/2012/09/01/cxf-webservice-nginx-411</guid>
+                <pubDate>2012-09-01T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>Jekyll Introduction</title>
@@ -330,8 +422,8 @@ tags : [how-to, jekyll]
 &lt;h2 id='next_steps'&gt;Next Steps&lt;/h2&gt;
 
 &lt;p&gt;Please take a look at &lt;a href='' /&gt; or jump right into &lt;a href=''&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</description>
-                <link>http://username.github.com/lessons/2011/12/29/jekyll-introduction</link>
-                <guid>http://username.github.com/lessons/2011/12/29/jekyll-introduction</guid>
+                <link>http://jervyshi.github.com/lessons/2011/12/29/jekyll-introduction</link>
+                <guid>http://jervyshi.github.com/lessons/2011/12/29/jekyll-introduction</guid>
                 <pubDate>2011-12-29T00:00:00+08:00</pubDate>
         </item>
 

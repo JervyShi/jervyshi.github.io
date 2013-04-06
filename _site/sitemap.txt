@@ -1,11 +1,14 @@
 
-http://username.github.com/archive.html
-http://username.github.com/atom.xml
-http://username.github.com/categories.html
-http://username.github.com/index.html
-http://username.github.com/pages.html
-http://username.github.com/rss.xml
-http://username.github.com/sitemap.txt
-http://username.github.com/tags.html
+http://jervyshi.github.com/archive.html
+http://jervyshi.github.com/atom.xml
+http://jervyshi.github.com/categories.html
+http://jervyshi.github.com/index.html
+http://jervyshi.github.com/pages/about.html
+http://jervyshi.github.com/pages.html
+http://jervyshi.github.com/rss.xml
+http://jervyshi.github.com/sitemap.txt
+http://jervyshi.github.com/tags.html
 
-http://username.github.com/lessons/2011/12/29/jekyll-introduction
+http://jervyshi.github.com/2013/04/06/hello-jekyll
+http://jervyshi.github.com/java/2012/09/01/cxf-webservice-nginx-411
+http://jervyshi.github.com/lessons/2011/12/29/jekyll-introduction
