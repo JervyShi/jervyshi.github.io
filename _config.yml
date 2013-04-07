@@ -10,13 +10,16 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : JervyShi's Blog
-tagline: Site Tagline
+tagline: 
 author :
   name : JervyShi
   email : jervyshi@gmail.com
   github : JervyShi
   twitter : JervyShi
   feedburner : feed JervyShi
+  gravatar :
+    url : https://en.gravatar.com/userimage/37454011/3bac3aec19a16ca8fb4b48ff9adcbce6.png
+    caption : JervyShi
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -26,12 +29,12 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://jervyshi.github.com
+production_url : http://jervyshi.me
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :
-  version : 0.3.0
+  version : 0.2.13
 
   # All links will be namespaced by BASE_PATH if defined.
   # Links in your website should always be prefixed with {{BASE_PATH}}

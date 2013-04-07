@@ -3,18 +3,18 @@
 <channel>
         <title>JervyShi's Blog</title>
         <description>JervyShi's Blog - JervyShi</description>
-        <link>http://jervyshi.github.com</link>
-        <link>http://jervyshi.github.com</link>
-        <lastBuildDate>2013-04-07T22:04:33+08:00</lastBuildDate>
-        <pubDate>2013-04-07T22:04:33+08:00</pubDate>
+        <link>http://jervyshi.me</link>
+        <link>http://jervyshi.me</link>
+        <lastBuildDate>2013-04-07T23:30:32+08:00</lastBuildDate>
+        <pubDate>2013-04-07T23:30:32+08:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
                 <title>Test Rake</title>
                 <description>&lt;p&gt;Just test rake post!&lt;/p&gt;</description>
-                <link>http://jervyshi.github.com/2013/04/07/test-rake</link>
-                <guid>http://jervyshi.github.com/2013/04/07/test-rake</guid>
+                <link>http://jervyshi.me/2013/04/07/test-rake</link>
+                <guid>http://jervyshi.me/2013/04/07/test-rake</guid>
                 <pubDate>2013-04-07T00:00:00+08:00</pubDate>
         </item>
 
@@ -23,8 +23,8 @@
                 <description>&lt;h2 id='jekyll_github_'&gt;Jekyll GitHub 搭建的新博客&lt;/h2&gt;
 
 &lt;p&gt;考虑再三还是决定要给自己的博客搬个家了，无论是稳定性还是技术方面的考虑，GitHub Page都是一个不错的选择！&lt;/p&gt;</description>
-                <link>http://jervyshi.github.com/2013/04/06/hello-jekyll</link>
-                <guid>http://jervyshi.github.com/2013/04/06/hello-jekyll</guid>
+                <link>http://jervyshi.me/2013/04/06/hello-jekyll</link>
+                <guid>http://jervyshi.me/2013/04/06/hello-jekyll</guid>
                 <pubDate>2013-04-06T00:00:00+08:00</pubDate>
         </item>
 
@@ -107,8 +107,8 @@ http.setClient(httpClientPolicy);&lt;/code&gt;&lt;/pre&gt;
     &lt;li&gt;&lt;span&gt;29 Dec 2011&lt;/span&gt; &amp;raquo; &lt;a href='/lessons/2011/12/29/jekyll-introduction'&gt;Jekyll Introduction&lt;/a&gt;&lt;/li&gt;
   
 &lt;/ul&gt;</description>
-                <link>http://jervyshi.github.com/java/2012/09/01/cxf-webservice-nginx-411</link>
-                <guid>http://jervyshi.github.com/java/2012/09/01/cxf-webservice-nginx-411</guid>
+                <link>http://jervyshi.me/java/2012/09/01/cxf-webservice-nginx-411</link>
+                <guid>http://jervyshi.me/java/2012/09/01/cxf-webservice-nginx-411</guid>
                 <pubDate>2012-09-01T00:00:00+08:00</pubDate>
         </item>
 
@@ -432,8 +432,8 @@ tags : [how-to, jekyll]
 &lt;h2 id='next_steps'&gt;Next Steps&lt;/h2&gt;
 
 &lt;p&gt;Please take a look at &lt;a href='' /&gt; or jump right into &lt;a href=''&gt;Usage&lt;/a&gt; if you&amp;#8217;d like.&lt;/p&gt;</description>
-                <link>http://jervyshi.github.com/lessons/2011/12/29/jekyll-introduction</link>
-                <guid>http://jervyshi.github.com/lessons/2011/12/29/jekyll-introduction</guid>
+                <link>http://jervyshi.me/lessons/2011/12/29/jekyll-introduction</link>
+                <guid>http://jervyshi.me/lessons/2011/12/29/jekyll-introduction</guid>
                 <pubDate>2011-12-29T00:00:00+08:00</pubDate>
         </item>
 
