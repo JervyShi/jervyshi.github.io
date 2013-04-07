@@ -5,10 +5,18 @@
         <description>JervyShi's Blog - JervyShi</description>
         <link>http://jervyshi.github.com</link>
         <link>http://jervyshi.github.com</link>
-        <lastBuildDate>2013-04-07T21:32:07+08:00</lastBuildDate>
-        <pubDate>2013-04-07T21:32:07+08:00</pubDate>
+        <lastBuildDate>2013-04-07T22:04:33+08:00</lastBuildDate>
+        <pubDate>2013-04-07T22:04:33+08:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Test Rake</title>
+                <description>&lt;p&gt;Just test rake post!&lt;/p&gt;</description>
+                <link>http://jervyshi.github.com/2013/04/07/test-rake</link>
+                <guid>http://jervyshi.github.com/2013/04/07/test-rake</guid>
+                <pubDate>2013-04-07T00:00:00+08:00</pubDate>
+        </item>
 
         <item>
                 <title>Hello Jekyll</title>
@@ -89,6 +97,8 @@ http.setClient(httpClientPolicy);&lt;/code&gt;&lt;/pre&gt;
 	&amp;lt;http-conf:client AllowChunking=&amp;quot;false&amp;quot; /&amp;gt;
 &amp;lt;/http-conf:conduit&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;ul class='posts'&gt;
+  
+    &lt;li&gt;&lt;span&gt;07 Apr 2013&lt;/span&gt; &amp;raquo; &lt;a href='/2013/04/07/test-rake'&gt;Test Rake&lt;/a&gt;&lt;/li&gt;
   
     &lt;li&gt;&lt;span&gt;06 Apr 2013&lt;/span&gt; &amp;raquo; &lt;a href='/2013/04/06/hello-jekyll'&gt;Hello Jekyll&lt;/a&gt;&lt;/li&gt;
   
