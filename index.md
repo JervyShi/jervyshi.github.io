@@ -5,7 +5,7 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-{% for post in site.posts %}
+<!-- {% for post in site.posts %}
 <div class="page-header">
   <h1>{{ post.title }} {% if post.tagline %} <small>{{ post.tagline }}</small>{% endif %}</h1>
 </div>
@@ -16,7 +16,7 @@ tagline: Supporting tagline
   </div>
 </div>
 {% break %}
-{% endfor %}
+{% endfor %} -->
 
 ##More Posts:
 <ul class="posts">
