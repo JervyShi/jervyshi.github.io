@@ -14,6 +14,7 @@ title: index
     {{ post.content }}
   </div>
 </div>
+{% break %}
 {% endfor %}
 
 <hr/>
