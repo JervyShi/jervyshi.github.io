@@ -6,7 +6,7 @@ title: index
 
 {% for post in site.posts %}
 <div class="page-header">
-  <h1>{{ post.title }} {% if post.tagline %} <small>{{ post.tagline }}</small>{% endif %}</h1>
+  <h1>{{ post.title }}</h1>
 </div>
 
 <div class="row-fluid">
