@@ -73,9 +73,3 @@ tags: [java, linux, webservice, nginx]
 	<http-conf:conduit name="http://jervyshi.tk/.*">
   		<http-conf:client AllowChunking="false" />
 	</http-conf:conduit>
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>

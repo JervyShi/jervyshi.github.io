@@ -17,6 +17,9 @@ author :
   github : JervyShi
   twitter : JervyShi
   feedburner : feedname
+  gravatar :
+    url : http://en.gravatar.com/userimage/37454011/3bac3aec19a16ca8fb4b48ff9adcbce6.png
+    caption : Code Life
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
