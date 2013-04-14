@@ -5,6 +5,7 @@ title: index
 {% include JB/setup %}
 
 {% for post in site.posts %}
+{% if forloop.first %}
 <div class="page-header">
   <h1>{{ post.title }}</h1>
 </div>
@@ -14,7 +15,7 @@ title: index
     {{ post.content }}
   </div>
 </div>
-{% break %}
+{% endif %}
 {% endfor %}
 
 <hr/>
