@@ -1,4 +1,10 @@
-##MarkDown编辑器汇总
+---
+layout: post
+title: "MarkDown编辑器汇总"
+description: "MarkDown是一种轻量级的标记语言，用于博文再合适不过了。汇总一些MarkDown的编辑器方便大家使用。"
+category: mac
+tags: [markdown, editor]
+---
 [MarkDown](http://markdown.tw/)是一种轻量级的标记语言，用于博文再合适不过了。汇总一些[MarkDown](http://markdown.tw/)的编辑器方便大家使用。
 
 ###一、本地编辑器
@@ -8,7 +14,7 @@
 ![Mou](http://ww4.sinaimg.cn/mw690/713d9449jw1e4h6zdb2h9j20s60k60w5.jpg)
 
 ####2、Windows Software － [MarkDownPad](http://markdownpad.com/)
-[MarkDownPad](http://markdownpad.com/)是 Windows 下的一款全功能的Markdown编辑器。类似Mac下的[Mou](http://mouapp.com/)，清爽的编辑界面，并有预览功能，如果不需要预览的话其实[sublime text 2](http://www.sublimetext.com/2)才是跨平台的不二之选。
+[MarkDownPad](http://markdownpad.com/)是 Windows 下的一款全功能的Markdown编辑器。类似Mac下的[Mou](http://mouapp.com/)，清爽的编辑界面，并有预览功能，如果不需要预览的话其实[Sublime Text 2](http://www.sublimetext.com/2)才是跨平台的不二之选。
 
 ![MarkDownPad](http://ww4.sinaimg.cn/mw690/713d9449jw1e4h7flnkhfj20q40ibn2a.jpg)
 
@@ -18,14 +24,14 @@
 ####2、[Prose · A Content Editor for GitHub](http://prose.io/)
 [Prose](http://prose.io/)是一款可直接在线编辑Github中项目文件的在线编辑器，可通过登陆GitHub对Prose进行授权，然后在Prose中对项目文件进行编辑。可对MarkDown文件进行在线预览。
 ####3、[Gist](https://gist.github.com/)
-[Github gist](https://gist.github.com/)可在线编写各种语言（包含MarkDown）文件并直接具备版本可被用作github的repository。
+[Github gist](https://gist.github.com/)可在线编写各种语言（包含MarkDown）文件并直接具备版本可被用作GitHub的repository。
 ####4、[简书](http://jianshu.io/)
 [简书](http://jianshu.io/)并不是单纯的在线编辑器，它是一个专门为写作者量身打造的写作软件，支持 Markdown。
 ####5、[EpicEditor](http://epiceditor.com/)
 [EpicEditor](http://epiceditor.com/)我最看中的是它的可自定义性，丰富的API使得你可以在你的项目中自定义你最想要的MarkDown编辑器。
 
 ###三、浏览器插件
-####1、Chrome插件 - [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)
+####Chrome插件 - [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)
 [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog) 意为 MArkDown Editor，其拥有一个含义十足的图标，具体描述可参见[MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)内概述。
 
 ![MaDe](http://ww4.sinaimg.cn/mw690/713d9449jw1e4ha4j79qnj201e01ea9u.jpg)
