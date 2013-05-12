@@ -31,8 +31,10 @@ tags: [markdown, editor]
 [EpicEditor](http://epiceditor.com/)我最看中的是它的可自定义性，丰富的API使得你可以在你的项目中自定义你最想要的MarkDown编辑器。
 
 ###三、浏览器插件
-####Chrome插件 - [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)
+####1、Chrome插件 - [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)
 [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog) 意为 MArkDown Editor，其拥有一个含义十足的图标，具体描述可参见[MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)内概述。
 
 ![MaDe](http://ww4.sinaimg.cn/mw690/713d9449jw1e4ha4j79qnj201e01ea9u.jpg)
 
+####2、Chrome插件 - [Markdown Here](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)
+[Markdown Here](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)推荐自[se7en](http://twitter.com/prime3721)，感谢分享！
