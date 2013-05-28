@@ -1,10 +1,17 @@
 ---
+published: "true"
 layout: post
-title: "CXF webservice调用411 Length Required解决方案"
-description: "项目中一直用到Apache CXF WebService，原本服务端都是apache做转发，一切都很正常。有一天服务端换成nginx做转发，问题就出来了，客户端调用时抛出 411 Length Required 异常。"
+title: CXF webservice调用411 Length Required解决方案
+description: 项目中一直用到Apache CXF WebService，原本服务端都是apache做转发，一切都很正常。有一天服务端换成nginx做转发，问题就出来了，客户端调用时抛出 411 Length Required 异常。
 category: java
-tags: [java, linux, webservice, nginx]
+tags: 
+  - java
+  - linux
+  - webservice
+  - nginx
+
 ---
+
 {% include JB/setup %}
 
 项目中一直用到[Apache CXF WebService](http://cxf.apache.org/)，原本服务端都是apache做转发，一切都很正常。有一天服务端换成nginx做转发，问题就出来了，客户端调用时抛出 411 Length Required 异常。
@@ -37,7 +44,7 @@ tags: [java, linux, webservice, nginx]
 	Connection: keep-alive
 	Content-Length: 286
 
-第二步:使用大数据量进行测试，获取请求头如下，发现可以调用失败时cxf发送数据时请求头中没有包含”*Content-Length*”，同时多了一个”*Transfer-Encoding*”值为”chunked”，关于 的介绍可以参考博文[http协议content-encoding & transfer-encoding](http://www.51testing.com/?uid-390472-action-viewspace-itemid-233985)
+第二步:使用大数据量进行测试，获取请求头如下，发现可以调用失败时cxf发送数据时请求头中没有包含”*Content-Length*”，同时多了一个”*Transfer-Encoding*”值为”chunked”，关于”*Transfer-Encoding*”的介绍可以参考博文[http协议content-encoding & transfer-encoding](http://www.51testing.com/?uid-390472-action-viewspace-itemid-233985)
 
 	POST / HTTP/1.1
 	Content-Type: text/xml; charset=UTF-8
@@ -52,7 +59,7 @@ tags: [java, linux, webservice, nginx]
 
 通过一番搜索，发现apache默认就是支持*chunked*块接收的，而nginx如果要支持这种格式必须要添加*chunkin-nginx-module*模块，但是给nginx添加新模块需要重新编译nginx，虽然能解决现有问题但是有必要通过一系列的测试等，需要找到一个更简单的临时解决方案。
 
-既然apache cxf可以在请求头中添加”*Content-Length*”来发送并且数据量达到一定值之后会转换为*chunked*块发送，那么是否可以关掉chunked块发送方式呢，感觉apache cxf官网完善的文档，经过一番探索在[Apahce cxf-User’s Guide](http://cxf.apache.org/docs/client-http-transport-including-ssl-support.html)中找到了”*AllowChunking*”的设置，有两种方式，可以直接在代码中设置*AllowChunking*也可以在配置文件中设置*AllowChunking*
+既然apache cxf可以在请求头中添加”*Content-Length*”来发送并且数据量达到一定值之后会转换为*chunked*块发送，那么是否可以关掉chunked块发送方式呢，感谢apache cxf官网完善的文档，经过一番探索在[Apahce cxf-User’s Guide](http://cxf.apache.org/docs/client-http-transport-including-ssl-support.html)中找到了”*AllowChunking*”的设置，有两种方式，可以直接在代码中设置*AllowChunking*也可以在配置文件中设置*AllowChunking*
 
 	//Turn off chunking so that NTLM can occur
 	Client client = ClientProxy.getClient(port);
