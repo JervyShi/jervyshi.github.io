@@ -35,7 +35,8 @@ tags: [mac, hackintosh]
 15. 重启直接把SSD做为第一启动项启动进入Mac，至此已经完成无损迁移
 
 ###四、详细图文步骤解说
-1. 通过PE将SSD上的WIN7分区通过Ghost工具的Partition to Partition完整copy到HDD上的主分区：此步骤主要为无损迁移WIN7系统，通过Ghost工具的分区对分区的对拷可轻松实现整个windows系统的迁移，但是如此迁移后会有引导问题，后续会修复，见下图从SSD_MAC至HDD_MAIN![partition-info](http://ww2.sinaimg.cn/mw690/713d9449jw1e58o121lfkj206p05pdg7.jpg)
+1. 通过PE将SSD上的WIN7分区通过Ghost工具的Partition to Partition完整copy到HDD上的主分区：此步骤主要为无损迁移WIN7系统，通过Ghost工具的分区对分区的对拷可轻松实现整个windows系统的迁移，但是如此迁移后会有引导问题，后续会修复，见下图从SSD_MAC至HDD_MAIN
+	![partition-info](http://ww2.sinaimg.cn/mw690/713d9449jw1e58o121lfkj206p05pdg7.jpg)
 
 2. 把SSD上的软件分区完整合并到HDD的第一个逻辑分区，清空HDD最后一个逻辑分区数据：
 	此步骤采用直接复制文件的方式，因SSD_SOFT中安装了常用的windows软件，在windows主分区的注册表表中会有部分软件的路径信息，把SSD_SOFT中的全部文件copy到HDD_1中，再进入HDD_MAIN的win7系统后可修改HDD_1的盘符为D盘即可无损使系统及软件全部迁移。
@@ -50,7 +51,7 @@ tags: [mac, hackintosh]
 	![partition-format](http://ww3.sinaimg.cn/mw690/713d9449jw1e58psc0q9lj20kk0htac5.jpg)
 7. 使用 *Super Dumper!* 把Mac整个分区完整copy至第6步建立的mac分区：
 	工具*Super Dumper!*在[扩容Mac系统盘方法之一](http://bbs.pcbeta.com/viewthread-1156969-1-1.html)中有下载，打开软件选择 Copy SSD_MAC to disk1s8 ，using Backup - all files 然后就点*Copy now*
-	![ssdmactodisk1s8](http://ww2.sinaimg.cn/mw69	0/713d9449jw1e58o16oiu0j20ey08e3zl.jpg) 
+	![ssdmactodisk1s8](http://ww2.sinaimg.cn/mw690/713d9449jw1e58o16oiu0j20ey08e3zl.jpg) 
 	整个过程根据所需要copy分区的大小需要的时间也不同，我30G的分区33分左右copy完成
 	![copy success](http://ww4.sinaimg.cn/mw690/713d9449jw1e58o13glmtj20ey0coq48.jpg)
 8. 重启进入PE用DiskGenius把HDD主分区设置为*活动*分区：
