@@ -1,6 +1,6 @@
 ---
 layout: default
-title: index
+title: Index
 ---
 {% include JB/setup %}
 
@@ -9,7 +9,6 @@ title: index
 <div class="page-header">
   <h1>{{ post.title }}</h1>
 </div>
-
 <div class="row-fluid">
   <div class="span12">
     {{ post.content }}
