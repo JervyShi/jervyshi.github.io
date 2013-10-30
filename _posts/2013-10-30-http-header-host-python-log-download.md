@@ -2,7 +2,7 @@
 layout: post
 title: "批量下载不同服务器相同域名下日志文件"
 description: "Intellij IDEA Eclipse Document"
-category: IDE
+category: python 
 tags: [python, http]
 ---
 
