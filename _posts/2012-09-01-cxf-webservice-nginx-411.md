@@ -12,8 +12,6 @@ tags:
 
 ---
 
-{% include JB/setup %}
-
 项目中一直用到[Apache CXF WebService](http://cxf.apache.org/)，原本服务端都是apache做转发，一切都很正常。有一天服务端换成nginx做转发，问题就出来了，客户端调用时抛出 411 Length Required 异常。
 
 	javax.xml.ws.soap.SOAPFaultException: Response was of unexpected text/html ContentType.  

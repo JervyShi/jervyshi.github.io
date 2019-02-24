@@ -5,7 +5,6 @@ description: "Mac下的Shell默认是白底黑字并且没有linux下各种色�
 category: mac
 tags: [mac, shell]
 ---
-{% include JB/setup %}
 
 Mac下的Shell默认是白底黑字并且没有linux下各种色彩区分的，这对于用习惯了linux下shell的童鞋们来讲实在是太不舒服了！
 
