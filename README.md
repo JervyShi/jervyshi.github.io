@@ -1,46 +1,61 @@
-# Jekyll-Bootstrap
+# Contrast
 
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
+![screenshot](https://user-images.githubusercontent.com/4943215/50294425-2da5bf80-0476-11e9-8a27-8c59a7192cf6.png)
+![screenshot](https://user-images.githubusercontent.com/4943215/50294472-3f876280-0476-11e9-8458-6a40fe735335.png)
 
-## Usage
+## Installation (recommended)
 
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+Just fork the repo and adjust the `_config.yml` to use with [Github Pages](https://pages.github.com/) and your page is done.
 
-## Version
+*Note:* If you want to use this theme in a subfolder, then you need to create a `gh-pages` branch in your repo.
 
-0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
+## Installation (jekyll-remote-theme method)
 
-**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
-However, the actual API has not changed at all.
-You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
+You can also create an empty repo, add `index.html` and `archive.html` files, which can be empty but need to contain front matter, and add this to your `_config.yml`:
 
-## Contributing 
+```yaml
+remote_theme: niklasbuschmann/contrast
 
-This repository tracks 2 projects:
+plugins:
+  - jekyll-remote-theme
+```
 
-- **Jekyll-Bootstrap Framework.**  
-  The framework for which users should clone and build their blog on top of is available in the master branch.
-  
-  To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-  This is very important as it allows me to accept your pull request without having to publish a public version release.
-  
-  Small, atomic Features, bugs, etc.   
-  Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.   
-  Please rebase as often as possible when working.   
-  Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
-  
-  For Big Features or major API extensions/edits:   
-  This is the one case where I'll accept pull-requests based off the master branch.
-  This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-  Translation : it might take a bit longer so please be patient! (but sincerely thank you).
- 
-- **Jekyll-Bootstrap Documentation Website.**    
-  The documentation website at <http://jekyllbootstrap.com> is maintained in the gh-pages branch.
-  Please fork and contribute documentation additions to this branch only.
+For an example repo you can look at the [demo](https://github.com/niklasbuschmann/contrast-demo) of this theme.
 
-The master and gh-pages branch do not share the same ancestry. Please treat them as completely separate git repositories!
+## Features
 
+ - supports dark mode on macOS Mojave
+ - MathJax support
+ - no external ressources
+ - included archive page
+ - supports pagination
+ - feed generation
+ - responsive
+ - syntax highlighting
+ - supports comments via [disqus](https://disqus.com/) or [isso](http://posativ.org/isso/)
+
+## Based on
+
+- [Minima](https://github.com/jekyll/minima)
+- [Lagrange](https://github.com/LeNPaul/Lagrange)
+- [Font Awesome](http://fontawesome.io/)
+- [KaTeX](https://katex.org/)
+- [Pygments](https://github.com/richleland/pygments-css)
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[public domain](http://unlicense.org/)
+
+## Additional Screenshots
+
+### With navbar
+
+![screenshot](https://user-images.githubusercontent.com/4943215/50602342-6bafd400-0eb7-11e9-8275-d0986af3061f.png)
+
+### With navbar and style: contrast
+
+![screenshot](https://user-images.githubusercontent.com/4943215/50602434-82562b00-0eb7-11e9-86f3-ac9b6f577843.png)
+
+### With navbar and style: minimal
+
+![screenshot](https://user-images.githubusercontent.com/4943215/50602485-ae71ac00-0eb7-11e9-8b37-5dd9b5c09d8d.png)
