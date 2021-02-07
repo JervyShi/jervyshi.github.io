@@ -23,7 +23,7 @@ navigation:                  # (optional) site navigation in the header
   - about.md
 
 icons:                       # (optional) icons in the header, see http://fontawesome.com/icons
-  envelope: "mailto:jervyshi@users.noreply.github.com"
+  envelope: "mailto:jervyshi@gmail.com"
   github: "https://github.com/JervyShi"
   rss: "/feed.xml"
 
