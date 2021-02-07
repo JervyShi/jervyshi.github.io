@@ -11,12 +11,12 @@ tags: [markdown, editor]
 #### 1、Mac App － [Mou](http://mouapp.com/)
 [Mou](http://mouapp.com/)是Mac上非常好用的一款MarkDown编辑器，界面十分简洁，两栏设计编写加预览，用一用你会喜欢上的。
 
-![Mou](http://ww4.sinaimg.cn/mw690/713d9449jw1e4h6zdb2h9j20s60k60w5.jpg)
+![Mou](https://jervyshi.com/assets/images/713d9449jw1e4h6zdb2h9j20s60k60w5.jpg)
 
 #### 2、Windows Software － [MarkDownPad](http://markdownpad.com/)
 [MarkDownPad](http://markdownpad.com/)是 Windows 下的一款全功能的Markdown编辑器。类似Mac下的[Mou](http://mouapp.com/)，清爽的编辑界面，并有预览功能，如果不需要预览的话其实[Sublime Text 2](http://www.sublimetext.com/2)才是跨平台的不二之选。
 
-![MarkDownPad](http://ww4.sinaimg.cn/mw690/713d9449jw1e4h7flnkhfj20q40ibn2a.jpg)
+![MarkDownPad](https://jervyshi.com/assets/images/713d9449jw1e4h7flnkhfj20q40ibn2a.jpg)
 
 ### 二、在线编辑器
 #### 1、[MaHua](http://mahua.jser.me/) - 支持vim模式
@@ -34,7 +34,7 @@ tags: [markdown, editor]
 #### 1、Chrome插件 - [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)
 [MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog) 意为 MArkDown Editor，其拥有一个含义十足的图标，具体描述可参见[MaDe](https://chrome.google.com/webstore/detail/made/oknndfeeopgpibecfjljjfanledpbkog)内概述。
 
-![MaDe](http://ww4.sinaimg.cn/mw690/713d9449jw1e4ha4j79qnj201e01ea9u.jpg)
+![MaDe](https://jervyshi.com/assets/images/713d9449jw1e4ha4j79qnj201e01ea9u.jpg)
 
 #### 2、Chrome插件 - [Markdown Here](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)
 [Markdown Here](https://chrome.google.com/webstore/detail/markdown-here/elifhakcjgalahccnjkneoccemfahfoa)推荐自[se7en](http://twitter.com/prime3721)，感谢分享！
