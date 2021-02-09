@@ -25,6 +25,7 @@ navigation:                  # (optional) site navigation in the header
 icons:                       # (optional) icons in the header, see http://fontawesome.com/icons
   envelope: "mailto:jervyshi@gmail.com"
   github: "https://github.com/JervyShi"
+  twitter: "https://twitter.com/JervyShi"
   rss: "/feed.xml"
 
 comments:                    # embed disqus or isso comments
