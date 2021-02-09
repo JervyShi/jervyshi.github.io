@@ -12,6 +12,4 @@ permalink: /about/
 
 * [蚂蚁金服 Service Mesh 落地实践与挑战](http://www.thegiac.com/2019/lecturer/teacher?id=7123)
     * [post](/service-mesh-landing-practice-and-challenges-in-antfin)
-
-
-Contact: [Github](https://github.com/JervyShi) [Twitter](https://twitter.com/JervyShi)
+    * [slide](https://gw.alipayobjects.com/os/basement_prod/656d52ba-18d7-4122-8891-cbd814e32b80.pdf)
