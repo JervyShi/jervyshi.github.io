@@ -11,5 +11,7 @@ permalink: /about/
 ### 演讲
 
 * [蚂蚁金服 Service Mesh 落地实践与挑战](http://www.thegiac.com/2019/lecturer/teacher?id=7123)
-    * [post](/service-mesh-landing-practice-and-challenges-in-antfin)
-    * [slide](https://gw.alipayobjects.com/os/basement_prod/656d52ba-18d7-4122-8891-cbd814e32b80.pdf)
+    * [Post](/service-mesh-landing-practice-and-challenges-in-antfin)
+    * [Slides](https://gw.alipayobjects.com/os/basement_prod/656d52ba-18d7-4122-8891-cbd814e32b80.pdf)
+* [蚂蚁金服 Service Mesh 双十一实战](https://www.top100summit.com/detail?id=14140)
+    * [Post](/service-mesh-practice-antfinal-shopping-festival-big-exam)
