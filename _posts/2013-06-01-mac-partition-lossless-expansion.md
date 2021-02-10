@@ -38,7 +38,7 @@ HDD我的笔记本有两块硬盘，一块120G的SSD，一块500G的HDD。SSD上
 
 此步骤主要为无损迁移WIN7系统，通过Ghost工具的分区对分区的对拷可轻松实现整个windows系统的迁移，但是如此迁移后会有引导问题，后续会修复，见下图从SSD_MAC至HDD_MAIN
 
-![partition-info](https://jervyshi.com/assets/images/713d9449jw1e58o121lfkj206p05pdg7.jpg)
+![partition-info](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58o121lfkj206p05pdg7.jpg)
 
 
 2、把SSD上的软件分区完整合并到HDD的第一个逻辑分区，清空HDD最后一个逻辑分区数据：
@@ -61,17 +61,17 @@ HDD我的笔记本有两块硬盘，一块120G的SSD，一块500G的HDD。SSD上
 
 Mac只能对Mac下的分区格式进行操作，所以此步骤就是建立一个可以让Mac把本身的所有文件copy过去的分区
 
-![partition-format](https://jervyshi.com/assets/images/713d9449jw1e58psc0q9lj20kk0htac5.jpg)
+![partition-format](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58psc0q9lj20kk0htac5.jpg)
 
 7、使用 *Super Dumper!* 把Mac整个分区完整copy至第6步建立的mac分区：
 
 工具*Super Dumper!*在[扩容Mac系统盘方法之一](http://bbs.pcbeta.com/viewthread-1156969-1-1.html)中有下载，打开软件选择 Copy SSD_MAC to disk1s8 ，using Backup - all files 然后就点*Copy now*
 
-![ssdmactodisk1s8](https://jervyshi.com/assets/images/713d9449jw1e58o16oiu0j20ey08e3zl.jpg) 
+![ssdmactodisk1s8](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58o16oiu0j20ey08e3zl.jpg) 
 
 整个过程根据所需要copy分区的大小需要的时间也不同，我30G的分区33分左右copy完成
 
-![copy success](https://jervyshi.com/assets/images/713d9449jw1e58o13glmtj20ey0coq48.jpg)
+![copy success](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58o13glmtj20ey0coq48.jpg)
 
 8、重启进入PE用DiskGenius把HDD主分区设置为*活动*分区：
 
@@ -85,7 +85,7 @@ Mac只能对Mac下的分区格式进行操作，所以此步骤就是建立一�
 
 此步骤同第5步
 
-![partition-format2](https://jervyshi.com/assets/images/713d9449jw1e58o11cvepj206m04bgls.jpg)
+![partition-format2](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58o11cvepj206m04bgls.jpg)
 
 11、重启进入HDD上的mac系统并使用磁盘工具把SSD上的未格式化分区抹掉为*Mac OS 扩展（日志式）*：
 
@@ -105,4 +105,4 @@ Mac只能对Mac下的分区格式进行操作，所以此步骤就是建立一�
 
 扩容成功，此思路同样适合单硬盘mac分区无损扩容，扩容后效果
 
-![disk-info](https://jervyshi.com/assets/images/713d9449jw1e58o15f1j2j20g90a6myu.jpg)
+![disk-info](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449jw1e58o15f1j2j20g90a6myu.jpg)
