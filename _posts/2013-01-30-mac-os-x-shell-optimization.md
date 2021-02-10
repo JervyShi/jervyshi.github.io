@@ -8,7 +8,7 @@ tags: [mac, shell]
 
 Mac下的Shell默认是白底黑字并且没有linux下各种色彩区分的，这对于用习惯了linux下shell的童鞋们来讲实在是太不舒服了！
 
-![](https://jervyshi.com/assets/images/713d9449gw1e3pa9xfv1fj.jpg)
+![](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449gw1e3pa9xfv1fj.jpg)
 
 本着折腾的精神，探索更完美的Shell使用体验之道，Let’s begin！
 
@@ -16,7 +16,7 @@ Mac下的Shell默认是白底黑字并且没有linux下各种色彩区分的，�
 修改终端配色方案
 终端 -> 编好设置 -> 高级 -> 声明终端为：xterm-256color
 终端 -> 编好设置 -> 描述文件 -> Homebrew (要设置为默认的啦)
-![](https://jervyshi.com/assets/images/713d9449gw1e3pa9u5x95j.jpg)
+![](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449gw1e3pa9u5x95j.jpg)
 
 这个时候打开终端已经能初见成果了，虽然文字依然只有一种颜色，但底色至少不是白色那样单调了
 
@@ -36,6 +36,6 @@ Mac下的Shell默认是白底黑字并且没有linux下各种色彩区分的，�
 
 之后再重新打开终端之后，就有如下效果了
 
-![](https://jervyshi.com/assets/images/713d9449gw1e3pa9wmqzsj.jpg)
+![](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/713d9449gw1e3pa9wmqzsj.jpg)
 
 大功告成，享受你的shell吧！
