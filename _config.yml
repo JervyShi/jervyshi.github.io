@@ -37,4 +37,10 @@ plugins:
  - jekyll-paginate
  - jekyll-default-layout
 
+# Analytics
+analytics:
+  provider               : google # false (default), "google", "baidu"
+  google:
+    tracking_id          : G-S5NCS18L4G
+
 exclude: ["Gemfile.lock", "node_modules"]
