@@ -187,18 +187,25 @@ SOFAGW 在 MOSN 2.0 之上构建了自己的网关代理模型，通过 SOFA 的
 
 {: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758508317-b61c58e8-fb10-472d-91bf-c6a2ea60aeba.png)
+
+{: refdef: style="text-align: center;"}
 （上图来自 Dapr 官方文档）
 
 Dapr 提供了分布式架构下的各种原子 API，如服务调用、状态管理、发布订阅、可观测、安全等，并且实现了不同分布式原语在不同云上的对接实现组件。
 
 {: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509350-d42634c2-021c-4df8-8216-5fbfc0fd00e9.png)
+
+{: refdef: style="text-align: center;"}
 （上图来自 Dapr 官方文档）
 
 Dapr 相当于是在 Service Mesh 之上提供给应用更加无侵入的分布式原语，2021 年中，我们基于 MOSN 开源了应用运行时 Layotto，Layotto 相当于是 Application Runtime 和 Service Mesh 的合集：
 
 {: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509359-ef68ee18-954d-4c76-825e-3cd3cf0f11ac.png)
+
+{: refdef: style="text-align: center;"}
+（上图修改自 Dapr 官方文档）
 
 我们通过 Layotto 抽象出应用运行时 API 将内部的 Service Mesh 演进至如下架构：
 
