@@ -11,9 +11,12 @@ tags: [service-mesh, golang]
 
 本次交流将以如下次序展开：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504322-f5e9c9d7-d6ec-45bb-8590-772849c7b20a.png)
+
 ## 二、蚂蚁集团 Service Mesh 发展史
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504429-b3368bc7-6df3-4c6a-a3c6-9bf8323bc9bf.png)
 
 - 2018 年 3 月份蚂蚁集团的 Service Mesh 起步，MOSN 数据面诞生，起步就坚持走核心开源，内部能力走扩展的道路。
@@ -27,14 +30,17 @@ tags: [service-mesh, golang]
 
 1. SOA 时代，中间件的客户端均直接集成在业务进程内：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504332-0f553974-0153-458e-b830-bccdbe018ca2.png)
 
 2. Mesh 化阶段一：中间件能力下沉，应用和基础设施实现部分解耦：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504261-4763cdec-2b3c-49f6-acd3-ea305e984335.png)
 
 3. 应用运行时阶段：将应用和具体基础设施的类型解耦，仅依赖标准 API 编程：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504319-72804307-117c-431e-9ad8-fb3828195c97.png)
 ## 三、东西向流量规模化挑战
 
@@ -46,7 +52,9 @@ Mesh 化后的数据面 MOSN 承载了应用间非常核心的东西向通信链
 
 为了保证长连接的可用性，SOFA RPC 的通信协议 Bolt 有定义心跳包，默认心跳包是 15s 一次，那么一条长连接上的请求分布大概如下图所示：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758504912-73aa62d2-7c07-4723-8c29-620192065ead.png)
+
 在上诉场景中，一条长连接上，心跳包的请求数量远大于业务请求的数量，MOSN 在日常运行中，用于维护长连接可用句柄持有内存的开销，还有心跳包发送的 CPU 开销，在海量规模集群下不可忽视。
 
 基于以上问题，我们找到了两个解法：
@@ -60,15 +68,19 @@ Mesh 化后的数据面 MOSN 承载了应用间非常核心的东西向通信链
 
 1. 当长连接上无业务请求且心跳正常响应时，逐步将心跳周期拉长 15s -> 90s 
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758505136-96b8bf3d-8ce5-4f68-a486-5389c8046711.png)
 
 2. 当长连接上出现请求失败或心跳超时的场景时，将心跳周期重置回 15s
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758505368-a0f7ba00-025f-441e-89d4-45670a43e42c.png)
 
 3. 当长连接上存在正常业务请求时，降级本次心跳周期内的心跳请求
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758505453-1203ad34-eba8-4252-bc2b-abb63f2e2fee.png)
+
 通过以上心跳退避的手段，MOSN 的常态心跳 CPU 消耗降低至原来的 25%。
 
 #### 3.1.2 服务列表分片
@@ -77,7 +89,9 @@ Mesh 化后的数据面 MOSN 承载了应用间非常核心的东西向通信链
 
 MOSN 使用一致性哈希的策略对服务端机器进行分组：在客户端的内存中，首先将全量的服务端机器列表加入到一致性哈希环中，然后基于配置计算预期分片情况下的机器列表数 N，随后根据客户端机器 IP，从一致性哈希环中获取 N 个机器列表作为本机器的分片列表。每个客户端计算的哈希环都是一样的，不同的机器 IP 使得最终选择的机器分片列表是不同的。实现了不同客户端机器持有不同的服务端集群分片的效果。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758505474-85386683-7310-48fb-bc8e-5782ac04a3d4.png)
+
 通过对服务列表的分片优化，客户端向服务端建立的长连接数量急剧减小，在 6w 长连接且采用 50% 的负载均衡分片的场景下：单机 CPU 降低约 0.4 Core，内存降低约 500M。
 
 ### 3.2 海量服务发现问题
@@ -94,9 +108,15 @@ MOSN 的服务发现能力没有使用 Pilot，而是在内部直接和 SOFARegi
 #### 3.2.1 应用级服务发现演进
 
 接口级服务发现示例（相同节点中多个服务中重复出现）：
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758506184-312b86a0-f717-464d-9471-33929e016254.png)
+
 应用级服务发现示例（结构化表示应用、服务、地址列表间的关系）：
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758506274-b58b079b-ccc1-40d0-91a8-4224ca980cc8.png)
+
 通过对应用和接口关联信息的结构化改变，服务发现的节点数量可以下降一到两个数量级。
 
 接口级服务发现演进到应用级服务发现对于 RPC 框架来讲是一个巨大的变化，社区中有 Dubbo 3.0 实现了应用级服务发现，但这种跨大版本的升级兼容性考量很多，对于在奔跑的火车上换轮子这件事情，在框架层演进是比较困难的。由于蚂蚁集团内部的 Service Mesh 已经覆盖 90% 的标准应用，所以在服务发现演进方面我们可以做的更加激进，结合 MOSN + SOFARegistry 6.0，我们实现了接口级服务发现和应用级服务发现的兼容性以及平滑切换的方案，通过 MOSN 版本的迭代升级，目前已经完成接口级到应用级服务发现的切换。
@@ -114,27 +134,49 @@ MOSN 的服务发现能力没有使用 Pilot，而是在内部直接和 SOFARegi
 MOSN 把请求链路下沉之后，我们在服务治理方面做了非常多的尝试，包括像客户端精细化引流、单机压测引流、业务链路隔离、应用级别的跨单元容灾、单机故障剔除、各种限流能力等，篇幅关系我这里仅介绍下我们在限流场景下做的智能化探索。
 
 开源社区的 Sentinel 项目在限流方向做了一个非常好的实践，MOSN 在做限流早期就和 Sentinel 团队沟通，希望能基于 Sentinel 的 Golang 版本 SDK 来做扩展，站在巨人的肩膀上，我们做了更多的尝试。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758506322-e62b64b6-6add-43a3-8ec0-31c94723bd87.png)
+
 基于 Sentinel 可插拔的 Slot Chain 机制，我们在内部扩展了很多限流模块的实现，如自适应限流 Slot、集群限流 Slot、熔断 Slot、日志统计 Slot 等。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758506434-9728af1d-72ca-4d73-8b31-1042b1686364.png)
+
 在 MOSN 做限流能力之前，Java 进程内也是存在限流组件的，业务常用的是单机限流，一般会有一个精确的限流值，这个值需要经过反复的压测，才能得到单机的最大可健康承载的 TPS，这个值会随着业务应用本身的不断迭代，功能增加，链路变的更复杂而逐步变化，所以每年大促前，都会准备多轮全链路压测，来确保每个系统都能在满足总 TPS 的情况下对自身应用所应该配置的限流值有一个精确的预估。
 
 为了解决限流配置难的问题，我们尝试在 MOSN 内实现了自适应限流，根据对容器当前的接口并发、CPU、Load1 信息采集上报，再结合最近几个滑动窗口中，每个接口的请求量变化，可以自动识别是什么接口的并发量增加导致了 CPU 资源占用的提升，当负载超过一定的基线之后，限流组件可以自动识别出哪些接口应该被限流以避免资源使用超过健康水位。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758506754-86ffeaf5-a44e-46df-8be3-42a76193b2ad.png)
 
 在实际的生产环境中，自适应限流可以迅速精准的定位异常来源，并秒级介入，迅速止血，同时也可以识别流量类型，优先降低压测流量来让生产流量尽可能成功。大促前再也不需要每个应用 Owner 去给自己应用的每个接口配置限流值，大幅度提升研发幸福感。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758507194-28b592d7-47eb-4a97-a829-f815523dc987.png)
+
 ## 四、南北向流量打通
 
 MOSN 作为 Service Mesh 的数据面主要在东西向流量上发力，除了东西向流量之外，还有南北向流量被多种网关分而治之。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758508034-26ad5b69-15bf-4bdd-8643-908c90584da4.png)
+
 蚂蚁集团下有许多不同的公司主体，分别服务于不同的业务场景，各主体有与之对应的站点来部署应用对外提供服务，南北向流量最常见的是互联网流量入口，这个角色在蚂蚁集团由 Spanner 承载。除了互联网流量入口之外，多个主体公司间也可能存在信息交互，在同一个集团内的多公司主体如果信息交互需要绕一道公网，稳定性会大打折扣，同时带宽费用也会更贵。为了解决跨主体的高效互通问题，我们通过 SOFAGW 搭建起了多主体间的桥梁，让跨主体的应用间通信和同主体内的 RPC 通信一样简单，同时还具备链路加密、鉴权、可审计等能力，保障多主体间调用合规。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758507902-9bf69b1b-dfd8-44ce-9ee9-22d8442e7f53.png)
+
 SOFAGW 基于 MOSN 2.0 架构打造，既能使用 Golang 做高效研发，同时也能享受 Envoy 在 Http2 等协议处理上带来的超高性能。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758508226-198d983d-6a6b-47c2-9f99-661c26858d9e.png)
+
 简单介绍一下 MOSN 2.0 架构，Envoy 提供了可扩展的 Filter 机制，来让用户可以在协议处理链路中插入自己的逻辑，MOSN 通过实现一层基于 CGO 的 Filter 扩展层，将 Envoy 的 Filter 机制进行了升级，我们可以用 Golang 来写 Filter 然后嵌入 Envoy 被 CGO 的 Filter 调用。
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758508198-288f8de3-740f-4975-86e2-274fd59a6a60.png)
+
 SOFAGW 在 MOSN 2.0 之上构建了自己的网关代理模型，通过 SOFA 的 Golang 客户端和控制面交互获取配置信息、服务发现信息等，然后重组成 Envoy 的 Cluster 模型通过 Admin API 插入 Envoy 实例中。通过 Golang 的 Filter 扩展机制，SOFAGW 实现了蚂蚁集团内部的 LDC 服务路由、压测流量识别、限流、身份认证、流量复制、调用审计等能力。由于 Envoy 的 Http2 协议处理性能相比纯 Golang GRPC 实现高出 2～4倍，SOFAGW 选择将 Triple （Http2 on GRPC）协议处理交给 Envoy 来处理，将 Bolt （SOFA RPC 私有协议）协议的处理依然交给 MOSN 来处理。
 
 通过上述架构，SOFAGW 实现了蚂蚁集团内部的全主体可信互通，在高性能和快速迭代开发间也取得了不错的平衡。
@@ -143,30 +185,43 @@ SOFAGW 在 MOSN 2.0 之上构建了自己的网关代理模型，通过 SOFA 的
 
 随着 Service Mesh 化的探索进入深水区，我们把很多能力沉淀到 Mesh 的数据面之后，也感受到每种协议直接下沉的便利性与局限性，便利在于应用完全不用改造就可以平滑接入，局限性是每种私有协议均需要独立对接，且使用了 A 协议的应用，并不能直接在 B 协议上运行。在多云的环境下，我们希望可以做到让应用 `Write Once，Run on any Cloud！`想要实现这一愿景，我们需要将应用与基础设施间进一步解耦，让应用不直接感知底层的具体实现，而是使用分布式语义 API 来编写程序。这种思想在社区已经有 Dapr 作为先行者在探索：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758508317-b61c58e8-fb10-472d-91bf-c6a2ea60aeba.png)
 （上图来自 Dapr 官方文档）
+
 Dapr 提供了分布式架构下的各种原子 API，如服务调用、状态管理、发布订阅、可观测、安全等，并且实现了不同分布式原语在不同云上的对接实现组件。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509350-d42634c2-021c-4df8-8216-5fbfc0fd00e9.png)
 （上图来自 Dapr 官方文档）
+
 Dapr 相当于是在 Service Mesh 之上提供给应用更加无侵入的分布式原语，2021 年中，我们基于 MOSN 开源了应用运行时 Layotto，Layotto 相当于是 Application Runtime 和 Service Mesh 的合集：
+
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509359-ef68ee18-954d-4c76-825e-3cd3cf0f11ac.png)
+
 我们通过 Layotto 抽象出应用运行时 API 将内部的 Service Mesh 演进至如下架构：
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509468-cb09ecc0-24f1-4a2d-b426-dca3ec47994b.png)
 
 当然应用运行时是一个新的概念，如果这一层 API 抽象做不到足够中立，那么依然需要面临使用方需要 N 选 1 的局面，所以我们也在和 Dapr 社区一起制定 Application Runtime API 的标准，组织 Dapr Sig API Group 用于推进 API 的标准化，也期望能有更多感兴趣的同学一同加入。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509626-107774b6-980b-4aa8-bb15-f05739e773b8.png)
+
 期待未来大家的应用都可以 `Write once, Run on any Cloud！`。
 
 ## 六、Mesh 2.0 探索
 
 2022 年我们继续向前探索，基于 MOSN 2.0 我们有了高性能的网络底座、易于扩展的 Mesh 数据面，基于 Layotto 我们有了无厂商绑定的应用运行时。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758509653-8caf90f3-8ed1-487c-8065-05e0116aad30.png)
+
 下一步我们期望基于 eBPF 实现 Mesh 数据面的进一步下沉，从 Pod 粒度下沉到 Node 粒度，同时服务于更多场景，如 Function、Serverless，另外基于 MOSN 2.0 的良好扩展能力，我们希望能进一步尝试将业务应用相对通用的能力也可以沉淀下来，作为 Mesh 数据面的自定义插件来为更多应用提供服务，帮助业务实现相对通用的业务能力也可以快速迭代升级。
 
+{: refdef: style="text-align: center;"}
 ![image.png](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io//assets/images/1652758510352-7f4ce350-8371-401a-bf54-50de9dea8b18.png)
 
 相信在不远的未来，Mesh 2.0 可以在蚂蚁集团内部服务众多通用场景，也能给社区带来一些新的可能。以上是本次分享的所有内容，希望大家能从对蚂蚁集团 Service Mesh 的发展过程的交流中有所收获。
