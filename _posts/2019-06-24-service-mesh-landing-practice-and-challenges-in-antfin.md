@@ -6,7 +6,7 @@ category: service-mesh
 tags: [service-mesh, golang]
 ---
 
-本文整理自 GIAC（GLOBAL INTERNET ARCHITECTURE CONFERENCE）全球互联网架构大会，[蚂蚁金服 Service Mesh 落地实践与挑战](http://www.thegiac.com/2019/lecturer/teacher?id=7123)分享。分享基于 Service Mesh 的理念，结合蚂蚁金服内部实际场景，将中间件、数据层、安全层等能力从应用中剥离出来后下沉至独立的 Sidecar SOFAMosn 中，结合 Kubernetes 运维体系，提供应用无感知的情况下升级基础设施层能力的案例。
+本文整理自 GIAC（GLOBAL INTERNET ARCHITECTURE CONFERENCE）全球互联网架构大会，[蚂蚁金服 Service Mesh 落地实践与挑战](http://giac-history.msup.com.cn/2019/schedule/course?id=13816)分享。分享基于 Service Mesh 的理念，结合蚂蚁金服内部实际场景，将中间件、数据层、安全层等能力从应用中剥离出来后下沉至独立的 Sidecar SOFAMosn 中，结合 Kubernetes 运维体系，提供应用无感知的情况下升级基础设施层能力的案例。
 
 {: refdef: style="text-align: center;"}
 ![](https://cdn.jsdelivr.net/gh/jervyshi/jervyshi.github.io/assets/images/640.webp)
@@ -214,7 +214,7 @@ Service Mesh 的控制面建设我们也在规划中逐步向前推进，希望�
 
 ### 提到的相关开源组件地址：
 
-* SOFAMosn：https://github.com/sofastack/sofa-mosn
-* SOFARPC：https://github.com/sofastack/sofa-rpc
-* SOFARegistry：https://github.com/sofastack/sofa-registry
-* SOFABoot：https://github.com/sofastack/sofa-boot
+* SOFAMosn：[https://github.com/sofastack/sofa-mosn](https://github.com/sofastack/sofa-mosn)
+* SOFARPC：[https://github.com/sofastack/sofa-rpc](https://github.com/sofastack/sofa-rpc)
+* SOFARegistry：[https://github.com/sofastack/sofa-registry](https://github.com/sofastack/sofa-registry)
+* SOFABoot：[https://github.com/sofastack/sofa-boot](https://github.com/sofastack/sofa-boot)
