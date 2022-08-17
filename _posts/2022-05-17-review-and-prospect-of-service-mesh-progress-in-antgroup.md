@@ -7,7 +7,7 @@ tags: [service-mesh, golang]
 ---
 ## 一、引言
 
-继 2019 年的 《[蚂蚁金服 Service Mesh 落地实践与挑战](./service-mesh-landing-practice-and-challenges-in-antfin/)》之后，蚂蚁集团在 Service Mesh 方向已经继续探索演进近 3 年，这 3 年里有哪些新的变化，以及对未来的思考是什么，值此 SOFAStack 开源 4 周年之际，欢迎大家一起进入《蚂蚁集团 Service Mesh 进展回顾与展望》章节探讨交流。
+继 2019 年的 《[蚂蚁金服 Service Mesh 落地实践与挑战](https://jervyshi.me/service-mesh-landing-practice-and-challenges-in-antfin/)》之后，蚂蚁集团在 Service Mesh 方向已经继续探索演进近 3 年，这 3 年里有哪些新的变化，以及对未来的思考是什么，值此 SOFAStack 开源 4 周年之际，欢迎大家一起进入《蚂蚁集团 Service Mesh 进展回顾与展望》章节探讨交流。
 
 本次交流将以如下次序展开：
 
