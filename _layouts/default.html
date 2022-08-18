@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<head>
+  {% include head.html %}
+</head>
+
+
+<body class="light">
+
+  <header>
+    {% unless site.hide_title %}<h1><a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h1>{% endunless %}
+    {% if site.navigation %}<nav>{% for path in site.navigation %}{% assign node = site.pages | where: "name", path | first %}<a href="{{ node.url | relative_url }}">{{ node.title }}</a>{% endfor %}</nav>{% endif %}
+    {% if site.icons %}<nav>{% for link in site.icons %}<a class="icon" href="{{ link[1] }}"><svg><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ link[0] }}"></use></svg></a>{% endfor %}</nav>{% endif %}
+  </header>
+
+  {{ content }}
+
+  <footer>
+    {% include footer.html %}
+  </footer>
+
+  {% include analytics.html %}
+</body>
